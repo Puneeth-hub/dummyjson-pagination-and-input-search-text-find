@@ -36,7 +36,13 @@ function App() {
 
    
 
-  const totalPages = Math.ceil(totalQuotes/perPage) 
+  const totalPages = Math.ceil(totalQuotes/perPage)   
+
+  const pageNumber = []   
+
+  for(let i=1; i<=totalPages; i++) {
+    pageNumber.push(i)
+  }
 
   
   
@@ -69,6 +75,11 @@ const handleClickNext = () =>{
           </div>
          ))}
         </div>
+      <div>
+        {pageNumber.map((num) =>(
+          <button onClick={() => setCurrentPage(num)}>{num}</button>
+        ))}
+      </div>
       </div>
     
   )
